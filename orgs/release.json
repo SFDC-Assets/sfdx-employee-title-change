@@ -1,6 +1,7 @@
 {
   "orgName": "sfdx-employee-title-change - Release Test Org",
   "edition": "Enterprise",
+  "features": ["PersonAccounts"],
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true

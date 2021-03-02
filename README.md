@@ -1,9 +1,10 @@
 # sfdx-employee-title-change
 
-Add a brief description of this project here, in Markdown format.
-It will be shown on the main page of the project's GitHub repository.
+This is a SFDX project that demonstrates using a combination of process automation features together to implement a Employee Title Change process. 
 
 ## Development
+
+For this solution, employees are represented as PersonAccounts and the "Account" object label has been renamed to "Employee Account". 
 
 To work on this project in a scratch org:
 
