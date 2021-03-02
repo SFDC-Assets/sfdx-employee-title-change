@@ -248,7 +248,7 @@
             <targetReference>Initialized</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>Case_Approval_Init</name>
         <label>Case Approval Init</label>
