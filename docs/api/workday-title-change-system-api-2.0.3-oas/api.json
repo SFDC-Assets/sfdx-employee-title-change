@@ -1,0 +1,137 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Workday Title Change System API",
+    "version": "1.0.0"
+  },
+  "host": "title-change-sapi.us-w1.cloudhub.io",
+  "basePath": "/api",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/change-title": {
+      "x-amf-description": "Change Business Title in Workday",
+      "post": {
+        "parameters": [
+          {
+            "name": "client_id",
+            "required": true,
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "client_secret",
+            "required": true,
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "x-amf-mediaType": "application/json",
+            "in": "body",
+            "name": "generated",
+            "schema": {
+              "$ref": "#/definitions/type"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully processed in Workday",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "#/definitions/type_1"
+            }
+          },
+          "500": {
+            "description": "Failed",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "#/definitions/type_2"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "type": {
+      "example": {
+        "employeeId": "123",
+        "businessTitle": "string",
+        "effectiveDate": "2020-10-13"
+      },
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "employeeId",
+        "businessTitle",
+        "effectiveDate"
+      ],
+      "properties": {
+        "employeeId": {
+          "type": "string"
+        },
+        "businessTitle": {
+          "type": "string"
+        },
+        "effectiveDate": {
+          "type": "string"
+        }
+      }
+    },
+    "type_1": {
+      "example": {
+        "message": "success",
+        "workdayReferenceId": "550e416c7af301784a6a34f58901d500"
+      },
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "message",
+        "workdayReferenceId"
+      ],
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "workdayReferenceId": {
+          "type": "string"
+        }
+      }
+    },
+    "type_2": {
+      "example": {
+        "value": {
+          "error": {
+            "type": "VALIDATION_ERROR",
+            "message": "Validation error occurred. Invalid ID value. '123' is not a valid ID value for type = 'Employee_ID'"
+          }
+        }
+      },
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "error"
+      ],
+      "properties": {
+        "error": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "type",
+            "message"
+          ],
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

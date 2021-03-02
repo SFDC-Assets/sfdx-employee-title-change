@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Change employee title in Workday</description>
+    <label>WorkdayTitleChange</label>
+    <namedCredential>MuleSoft_WorkdayTitleChange</namedCredential>
+    <schema>{
+  &quot;swagger&quot;: &quot;2.0&quot;,
+  &quot;info&quot;: {
+    &quot;title&quot;: &quot;Workday Title Change System API&quot;,
+    &quot;version&quot;: &quot;1.0.0&quot;
+  },
+  &quot;host&quot;: &quot;title-change-sapi.us-w1.cloudhub.io&quot;,
+  &quot;basePath&quot;: &quot;/api&quot;,
+  &quot;schemes&quot;: [
+    &quot;https&quot;
+  ],
+  &quot;paths&quot;: {
+    &quot;/change-title&quot;: {
+      &quot;x-amf-description&quot;: &quot;Change Business Title in Workday&quot;,
+      &quot;post&quot;: {
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;client_id&quot;,
+            &quot;required&quot;: true,
+            &quot;in&quot;: &quot;header&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;name&quot;: &quot;client_secret&quot;,
+            &quot;required&quot;: true,
+            &quot;in&quot;: &quot;header&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;x-amf-mediaType&quot;: &quot;application/json&quot;,
+            &quot;in&quot;: &quot;body&quot;,
+            &quot;name&quot;: &quot;generated&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/type&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Successfully processed in Workday&quot;,
+            &quot;x-amf-mediaType&quot;: &quot;application/json&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/type_1&quot;
+            }
+          },
+          &quot;500&quot;: {
+            &quot;description&quot;: &quot;Failed&quot;,
+            &quot;x-amf-mediaType&quot;: &quot;application/json&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/type_2&quot;
+            }
+          }
+        }
+      }
+    }
+  },
+  &quot;definitions&quot;: {
+    &quot;type&quot;: {
+      &quot;example&quot;: {
+        &quot;employeeId&quot;: &quot;123&quot;,
+        &quot;businessTitle&quot;: &quot;string&quot;,
+        &quot;effectiveDate&quot;: &quot;2020-10-13&quot;
+      },
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;additionalProperties&quot;: true,
+      &quot;required&quot;: [
+        &quot;employeeId&quot;,
+        &quot;businessTitle&quot;,
+        &quot;effectiveDate&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;employeeId&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;businessTitle&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;effectiveDate&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;type_1&quot;: {
+      &quot;example&quot;: {
+        &quot;message&quot;: &quot;success&quot;,
+        &quot;workdayReferenceId&quot;: &quot;550e416c7af301784a6a34f58901d500&quot;
+      },
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;additionalProperties&quot;: true,
+      &quot;required&quot;: [
+        &quot;message&quot;,
+        &quot;workdayReferenceId&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;message&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;workdayReferenceId&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;type_2&quot;: {
+      &quot;example&quot;: {
+        &quot;value&quot;: {
+          &quot;error&quot;: {
+            &quot;type&quot;: &quot;VALIDATION_ERROR&quot;,
+            &quot;message&quot;: &quot;Validation error occurred. Invalid ID value. &apos;123&apos; is not a valid ID value for type = &apos;Employee_ID&apos;&quot;
+          }
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;additionalProperties&quot;: true,
+      &quot;required&quot;: [
+        &quot;error&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;error&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;additionalProperties&quot;: true,
+          &quot;required&quot;: [
+            &quot;type&quot;,
+            &quot;message&quot;
+          ],
+          &quot;properties&quot;: {
+            &quot;type&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;message&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+</schema>
+    <schemaType>OpenApi</schemaType>
+    <status>Complete</status>
+</ExternalServiceRegistration>

@@ -1,0 +1,25 @@
+minimum_cumulusci_version: '3.28.0'
+project:
+    name: sfdx-employee-title-change
+    package:
+        name: sfdx-employee-title-change
+        api_version: '50.0'
+    git:
+        default_branch: 'main'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/sfdx-employee-title-change/tests
+            options:
+                outputdir: robot/sfdx-employee-title-change/results
+
+    robot_testdoc:
+        options:
+            path: robot/sfdx-employee-title-change/tests
+            output: robot/sfdx-employee-title-change/doc/sfdx-employee-title-change_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
