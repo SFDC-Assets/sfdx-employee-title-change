@@ -1,0 +1,13 @@
+{
+    "FirstName": "Monica",
+    "LastName": "Edwards",
+    "Email": "monica@mailinator.com",
+    "Alias": "monica",
+    "TimeZoneSidKey": "America/Denver",
+    "LocaleSidKey": "en_US",
+    "EmailEncodingKey": "UTF-8",
+    "LanguageLocaleKey": "en_US",
+    "profileName": "Standard User",
+    "permsets": [],
+    "generatePassword": true
+}
