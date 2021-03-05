@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Employee_Title_Changae</fullName>
+    <fullName>Employee_Title_Change</fullName>
     <active>true</active>
     <businessProcess>Employee Title Change</businessProcess>
-    <label>Employee Title Changae</label>
+    <compactLayoutAssignment>rcCase_Compact_Layout</compactLayoutAssignment>
+    <label>Employee Title Change</label>
     <picklistValues>
         <picklist>Origin</picklist>
         <values>

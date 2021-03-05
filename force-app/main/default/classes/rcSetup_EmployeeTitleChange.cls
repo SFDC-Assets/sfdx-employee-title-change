@@ -56,6 +56,8 @@ public class rcSetup_EmployeeTitleChange {
         account.LastName = user.LastName;
         account.PersonTitle = user.Title;
         account.PersonEmail = user.Email;
+        account.Hire_Date__pc = System.today() - 90;
+        account.User__c = user.Id;
         insert account;
         //System.debug('account created: ' + account);
         

@@ -39,7 +39,7 @@
     <entryCriteria>
         <formula>true</formula>
     </entryCriteria>
-    <finalApprovalRecordLock>true</finalApprovalRecordLock>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
     <label>Employee_Title_Change_Approval</label>
     <processOrder>1</processOrder>
